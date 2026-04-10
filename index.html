@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My College Website</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:#f4f4f4;
+}
+
+/* Header */
+header{
+background:#002147;
+color:white;
+padding:20px;
+text-align:center;
+font-size:28px;
+}
+
+/* Image */
+img{
+width:100%;
+height:350px;
+object-fit:cover;
+}
+
+/* Buttons */
+.nav{
+text-align:center;
+margin:20px;
+}
+
+button{
+width:160px;
+height:45px;
+margin:8px;
+border:none;
+border-radius:6px;
+background:#004aad;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#ff9800;
+}
+
+/* Active button */
+.active{
+background:#ff9800;
+}
+
+/* Content box */
+#content{
+width:80%;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+min-height:200px;
+}
+
+/* Table */
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:10px;
+}
+
+th, td{
+border:1px solid black;
+padding:10px;
+text-align:center;
+}
+
+footer{
+margin-top:30px;
+background:#002147;
+color:white;
+padding:15px;
+text-align:center;
+}
+
+</style>
+
+<script>
+
+function loadContent(type){
+
+// remove active class
+let buttons = document.querySelectorAll("button");
+buttons.forEach(btn => btn.classList.remove("active"));
+
+// add active to clicked button
+event.target.classList.add("active");
+
+let content = document.getElementById("content");
+
+if(type=="fees"){
+content.innerHTML = `
+<h2>Fee Structure</h2>
+<table>
+<tr><th>Course</th><th>Tuition Fee</th><th>Hostel Fee</th></tr>
+<tr><td>B.Tech</td><td>₹2,00,000</td><td>₹1,00,000</td></tr>
+<tr><td>MBA</td><td>₹1,00,000</td><td>₹1,00,000</td></tr>
+<tr><td>B.Sc</td><td>₹80,000</td><td>₹1,00,000</td></tr>
+</table>`;
+}
+
+else if(type=="hostel"){
+content.innerHTML = `
+<h2>Hostel Details</h2>
+<p>Separate hostels for boys and girls.</p>
+<p>24/7 security and WiFi available.</p>
+<p>Mess facility with healthy food.</p>
+<div class="image-row">
+    <div class="image-box">
+        <img src="block.jpeg" alt="Block">
+        <h4>Hostel Block</h4>
+    </div>  
+    <div class="image-box">     
+        <img src="mess.jpeg" alt="Mess">
+        <h4>Mess</h4>  
+    </div> 
+</div>`;
+}
+
+else if(type=="courses"){
+content.innerHTML = `
+<h2>Courses Offered</h2>
+
+<h3>B.Tech</h3>
+<ul>
+<li>CSE</li>
+<li>ECE</li>
+<li>EEE</li>
+<li>AIML</li>
+<li>DS</li>
+<li>IT</li>
+<li>MECH</li>
+<li>CIVIL</li>
+<li>CHEMICAL ENGINEERING</li>
+<li>BIOTECHNOLOGY</li>
+</ul>
+
+<h3>MBA</h3>
+<ul>
+<li>FINANCE</li>
+<li>MARKETING</li>
+<li>HUMAN RESOURCES</li>
+<li>BUSINESS</li>
+<li>ANALYTICS</li>
+</ul>
+
+<h3>B.Com</h3>
+<ul>
+<li>GENERAL</li>
+<li>COMPUTERS</li>
+<li>ACCOUNTING</li><li>HONOURS</li><li>BANKING</li><li>TAXATION</li>
+</ul>
+`;
+}
+
+else if(type=="playground"){
+content.innerHTML = `
+<h2>Playground</h2>
+<p>Large playground for cricket, football, and sports.</p>
+<div class="image-row">
+    <div class="image-box">
+        <img src="play1.jpeg" alt="Play Ground">
+        <h4>Play Ground</h4>
+    </div>
+</div>`;
+}
+
+else if(type=="syllabus"){
+content.innerHTML = `
+<h2>Syllabus</h2>
+<p>You can download syllabus from college website or office.</p>`;
+}
+
+else if(type=="library"){
+content.innerHTML = `
+<h2>Library</h2>
+<p>Digital library, thousands of books, silent study rooms.</p>
+<div class="image-row">
+    <div class="image-box">
+        <img src="lib1.webp" alt="Library">
+        <h4>Library</h4>
+    </div>
+</div>`;
+}
+
+}
+
+
+
+
+
+</script>
+
+</head>
+
+<body>
+
+<header>Sandip University</header>
+
+<img src="college.jpg">
+
+<div class="nav">
+<button onclick="loadContent('fees')">Fees</button>
+<button onclick="loadContent('hostel')">Hostels</button>
+<button onclick="loadContent('courses')">Courses</button>
+<button onclick="loadContent('playground')">Playground</button>
+<button onclick="loadContent('syllabus')">Syllabus</button>
+<button onclick="loadContent('library')">Library</button>
+</div>
+
+<!-- Content Area -->
+<div id="content">
+<h2>Welcome</h2>
+</div>
+
+<footer>© 2026 My College</footer>
+
+</body>
+</html>
